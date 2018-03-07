@@ -1,3 +1,8 @@
+DROP DATABASE IF EXISTS teachers;
+CREATE DATABASE teachers;
+
+\c teachers;
+
 CREATE TABLE schools (
   ID SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL
@@ -7,7 +12,7 @@ CREATE TABLE teachers (
   ID SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL,
   subject VARCHAR,
-  schoolID INTEGER
+  schoolID INTEGER REFERENCES schools(ID)
 );
 
 INSERT INTO schools (ID, name)
